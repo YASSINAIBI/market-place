@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
+import API_URL from './../../config'
+
 function Buyers() {
   const [buyers, setBuyers] = useState([]);
 
@@ -22,7 +24,7 @@ function Buyers() {
           }, [])
 
           function fetchData() {
-              axios.get('http://localhost:5000/buyer/getAll')
+              axios.get(`${API_URL}/buyer/getAll`)
              .then(response =>{
                  const allBuyers = response.data
                  setBuyers(allBuyers)
@@ -33,7 +35,7 @@ function Buyers() {
          }
 
          async function deleteBuyer(id){
-                await axios.delete('http://localhost:5000/buyer/delete/'+id)
+                await axios.delete(`${API_URL}/buyer/delete/${id}`)
                     .then(function(response){
                         fetchData()
                         toast.configure();

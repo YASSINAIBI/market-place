@@ -14,6 +14,9 @@ const deliveryManRouter = require("./routes/deliveryManRouter");
 const cors = require("cors");
 app.use(express.json());
 
+// config app
+require('dotenv').config()
+
 db.on("error", (err) => console.log(err));
 db.once("open", () => console.log("connected to database"));
 
@@ -29,6 +32,13 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
+app.get('/', (req, res) => {
+  res.send('OK')
+})
+
+app.use('/uploads', express.static('./uploads'));
+
 app.use("/superAdmin", superAdminRouter);
 app.use("/seller", sellerRouter);
 app.use("/buyer", buyerRouter);
@@ -39,6 +49,7 @@ app.use("/product", productRouter);
 app.use("/order", orderRouter);
 app.use("/deliveryMan", deliveryManRouter);
 
+app.use(cors())
 
 app.listen(process.env.PORT, () => {
   console.log("connected to server " + process.env.PORT);

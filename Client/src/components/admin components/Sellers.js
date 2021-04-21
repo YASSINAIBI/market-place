@@ -8,6 +8,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+import API_URL from './../../config'
+
 function Sellers() {
   const [sellers, setSellers] = useState([]);
 
@@ -26,7 +28,7 @@ function Sellers() {
           }, [])
 
           function fetchSellers() {
-              axios.get('http://localhost:5000/seller/getAll')
+              axios.get(`${API_URL}/seller/getAll`)
              .then(response =>{
                  const allSellers = response.data
                  setSellers(allSellers)
@@ -37,7 +39,7 @@ function Sellers() {
          }
 
          async function deleteSeller(id){
-    await axios.delete('http://localhost:5000/seller/delete/'+id)
+    await axios.delete(`${API_URL}/seller/delete/${id}`)
                .then(function(response){
                 fetchSellers()
                 toast.configure();
@@ -52,7 +54,7 @@ async function validateSeller(id) {
 
     const token = localStorage.getItem('token')
     console.log(token);
-    axios.patch('http://localhost:5000/seller/validate',{
+    axios.patch(`${API_URL}/seller/validate`,{
         id_seller : id,
      }
     //,{

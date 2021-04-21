@@ -15,6 +15,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { useHistory} from "react-router-dom";
 import axios from 'axios'
 
+import API_URL from './../config'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -51,7 +52,7 @@ export default function Signup() {
   const onSubmit = async () =>{
 
     if (value === 'seller') {
-        await axios.post('http://localhost:5000/seller/register',{
+        await axios.post(`${API_URL}/seller/register`,{
             full_name: name,
             email: email,
             phone: phone,
@@ -91,7 +92,7 @@ export default function Signup() {
                         });
         })
     } else if(value === 'buyer'){
-        await axios.post('http://localhost:5000/buyer/register',{
+        await axios.post(`${API_URL}/buyer/register`,{
             full_name: name,
             email: email,
             phone: phone,

@@ -4,6 +4,8 @@ import jwt from "jwt-decode";
 import axios from "axios";
 import './test.css'
 
+import API_URL from './../../config'
+
 const useStyles = makeStyles({
   root: {
     fontSize: "100px",
@@ -23,7 +25,7 @@ export default function Stats() {
 
   const getSeller = async () => {
     await axios
-      .get("http://localhost:5000/seller/getOne/" + seller_id)
+      .get(`${API_URL}/seller/getOne/${seller_id}`)
       .then((response) => {
         setSeller(response.data);
       })

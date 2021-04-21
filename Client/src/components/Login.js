@@ -18,6 +18,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import jwt from "jwt-decode";
 import axios from "axios";
 
+import API_URL from './../config'
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -53,7 +55,7 @@ export default function Login() {
   const onClick = async () => {
     if (value === "seller") {
       await axios
-        .post("http://localhost:5000/seller/login", {
+        .post(`${API_URL}/seller/login`, {
           email: email,
           password: password,
         })
@@ -75,7 +77,7 @@ export default function Login() {
         });
     } else if (value === "buyer") {
       await axios
-        .post("http://localhost:5000/buyer/login", {
+        .post(`${API_URL}/buyer/login`, {
           email: email,
           password: password,
         })

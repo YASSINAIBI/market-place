@@ -1,8 +1,6 @@
 const nodemailer = require("nodemailer");
 const jwt = require('jsonwebtoken')
 
-
-
 function generatePassword() {
   var length = 8,
       charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
@@ -49,7 +47,7 @@ async function sendMail(token) {
     });
 
     let info = await transporter.sendMail({
-      from: "Banjamin Marketplace Support <noreplay@benjamin.fr>",
+      from: "Marketplace Support <noreplay@benjamin.fr>",
       to: userEmail,
       subject: "Verification de compte ✔",
       text: "Compte verifié",
@@ -62,3 +60,4 @@ async function sendMail(token) {
 
 
 module.exports = { sendMail, generatePassword };
+

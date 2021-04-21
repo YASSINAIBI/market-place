@@ -14,6 +14,8 @@ import Products_list from "./product_page";
 import axios from "axios";
 import card from "./card";
 
+import API_URL from './../config'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 20,
@@ -53,7 +55,7 @@ export default function Home({ history }) {
       <AppBar
         position="static"
         style={{
-          background: "#1a1a1a",
+          background: "gray",
           height: "100px",
           justifyContent: "center",
         }}

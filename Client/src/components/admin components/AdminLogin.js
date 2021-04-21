@@ -9,6 +9,8 @@ import '../../styles/adminLogin.css'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import API_URL from './../../config'
+
 export default function Admin() {
 
   let history = useHistory();
@@ -24,7 +26,7 @@ export default function Admin() {
   };
   const onClick = async () =>{
     if (value === 'superadmin') {
-    await axios.post('http://localhost:5000/superAdmin/login',{
+    await axios.post(`${API_URL}/superAdmin/login`,{
         email  : email,
         password : password
     })
@@ -38,7 +40,7 @@ export default function Admin() {
       });
     } else
     if (value === 'admin') {
-    await axios.post('http://localhost:5000/admin/login',{
+    await axios.post(`${API_URL}/admin/login`,{
         email  : email,
         password : password
     })

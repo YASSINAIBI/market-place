@@ -29,7 +29,7 @@
 
 //     const onSubmit = async (data) =>{
 
-//      await axios.post('http://localhost:5000/admin/add',{
+//      await axios.post('API_URL/admin/add',{
 //         full_name: data.full_name,
 //         email: data.email,
 //         phone: data.phone,
@@ -63,7 +63,7 @@
 //     }, [])
 
 //    async function fetchData() {
-//       await axios.get('http://localhost:5000/admin/getAll')
+//       await axios.get('API_URL/admin/getAll')
 //        .then(response =>{
 //            const allAdmins = response.data
 //            setAdmins(allAdmins)
@@ -73,7 +73,7 @@
 //    }
 
 //     async function deleteAdmin(id){
-//         await axios.delete('http://localhost:5000/admin/deleteAdmin/'+id)
+//         await axios.delete('API_URL/admin/deleteAdmin/'+id)
 //                     .then(function(response){
 //                     fetchData()
 //                     store.addNotification({
@@ -163,6 +163,8 @@ import { store } from 'react-notifications-component';
 import Table from 'react-bootstrap/Table'
 import DeleteIcon from '@material-ui/icons/Delete';
 
+import API_URL from './../../config'
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -203,7 +205,7 @@ export default function Admins() {
   };
      const onSubmit = async (data) =>{
      console.log(data);
-     await axios.post('http://localhost:5000/admin/add',{
+     await axios.post(`${API_URL}/admin/add`,{
         full_name: data.full_name,
         email: data.email,
         phone: data.phone,
@@ -229,7 +231,7 @@ export default function Admins() {
     }, [])
 
    async function fetchAdmins() {
-      await axios.get('http://localhost:5000/admin/getAll')
+      await axios.get(`${API_URL}/admin/getAll`)
        .then(response =>{
            const allAdmins = response.data
            setAdmins(allAdmins)
@@ -239,7 +241,7 @@ export default function Admins() {
    }
    console.log(admins);
     async function deleteAdmin(id){
-        await axios.delete('http://localhost:5000/admin/deleteAdmin/'+id)
+        await axios.delete(`${API_URL}/admin/deleteAdmin/${id}`)
                     .then(function(response){
                     fetchAdmins()
                     toast.configure();

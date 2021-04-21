@@ -9,6 +9,8 @@ import Table from 'react-bootstrap/Table'
 import DeleteIcon from '@material-ui/icons/Delete';
 import UpdateIcon from '@material-ui/icons/Update';
 
+import API_URL from './../../config'
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -31,7 +33,7 @@ export default function Categories() {
           }, [])
 
           function fetchData() {
-              axios.get('http://localhost:5000/category/getAll')
+              axios.get(`${API_URL}/category/getAll`)
              .then(response =>{
                  const allCategories = response.data
                  setCategories(allCategories)
@@ -43,7 +45,7 @@ export default function Categories() {
 
     const onSubmit = (data) =>{
         if(data.name){
-          axios.post('http://localhost:5000/category/addCategory',{
+          axios.post(`${API_URL}/category/addCategory`,{
             name : data.name,
         })
         .then(function (response) {
@@ -96,7 +98,7 @@ export default function Categories() {
     }
 
     const updateCategory = async (id) => {
-          await axios.put('http://localhost:5000/category/updateCategory/'+id,{
+          await axios.put(`${API_URL}/category/updateCategory/${id}`,{
             name : name
           },{
             headers:{
@@ -125,7 +127,7 @@ export default function Categories() {
     }
 
    async function deleteCategory(id){
-        await axios.delete('http://localhost:5000/category/deleteCategory/'+id)
+        await axios.delete(`${API_URL}/category/deleteCategory/${id}`)
                    .then(function(response){
                     fetchData()
                     store.addNotification({

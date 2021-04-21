@@ -17,6 +17,8 @@ import { store } from 'react-notifications-component';
 import Table from 'react-bootstrap/Table'
 import DeleteIcon from '@material-ui/icons/Delete';
 
+import API_URL from './../../config'
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -56,7 +58,7 @@ export default function Admins() {
     document.querySelector("#picture").value = "";
   };
      const onSubmit = async (data) =>{
-     await axios.post('http://localhost:5000/deliveryMan/add',{
+     await axios.post(`${API_URL}/deliveryMan/add`,{
             full_name: data.full_name,
             email: data.email,
             phone: data.phone,
@@ -81,7 +83,7 @@ export default function Admins() {
     }, [])
 
    async function fetchDeliveyMan() {
-      await axios.get('http://localhost:5000/deliveryMan/getAll')
+      await axios.get(`${API_URL}/deliveryMan/getAll`)
        .then(response =>{
            const allAdmins = response.data
            setDeliveryMan(allAdmins)
@@ -90,7 +92,7 @@ export default function Admins() {
        })
    }
     async function deleteDeliveryMan(id){
-        await axios.delete('http://localhost:5000/deliveryMan/delete/'+id)
+        await axios.delete(`${API_URL}/deliveryMan/delete/${id}`)
                     .then(function(response){
                     fetchDeliveyMan()
                     toast.configure();

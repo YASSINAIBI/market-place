@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import scriptLoader from "react-async-script-loader";
 import axios from "axios";
 
+import API_URL from './../../config'
+
 const CLIENT = {
   sandbox:
     "AXvn5xwuk6hbBe-HJkMf74158yRy0ukDpEUk_VUfp3cQ7UM_l5xRYXlKZQokZ5uTVeodoUCf5b9NI6Ox",
@@ -45,7 +47,7 @@ class PaypalButton extends React.Component {
 
   updateTurnOver = async (id) => {
     await axios
-      .patch("http://localhost:5000/seller/upgrade/" + id, {
+      .patch(`${API_URL}/seller/upgrade/${id}`, {
         turnOver: this.props.turnOver,
         type: this.props.type,
       })

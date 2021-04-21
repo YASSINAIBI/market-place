@@ -3,6 +3,8 @@ import axios from "axios";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./prcard.css";
 
+import API_URL from './../config'
+
 function Card({ match }) {
   const product_id = match.params.id;
   const [product, setProduct] = useState({});
@@ -13,7 +15,7 @@ function Card({ match }) {
 
   const getProduct = async (product_id) => {
     await axios
-      .get("http://localhost:5000/product/getProductById/" + product_id)
+      .get(`${API_URL}/product/getProductById/${product_id}`)
       .then((response) => {
         setProduct(response.data);
       })
@@ -33,7 +35,7 @@ function Card({ match }) {
           <div className="product__photo">
             <div className="photo-container">
               <div className="photo-main">
-                <img src={`/uploads/${product.picture}`} />
+                <img src={`${API_URL}/uploads/${product.picture}`} />
               </div>
             </div>
           </div>

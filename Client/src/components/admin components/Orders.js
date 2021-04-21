@@ -3,7 +3,7 @@ import axios from 'axios';
 import { store } from 'react-notifications-component';
 import Table from 'react-bootstrap/Table'
 
-
+import API_URL from './../../config'
 
 export default function Orders() {
 
@@ -15,7 +15,7 @@ export default function Orders() {
           }, [])
 
           function fetchData() {
-              axios.get('http://localhost:5000/orders/getAll')
+              axios.get(`${API_URL}/orders/getAll`)
              .then(response =>{
                  const allOrders = response.data
                  setBuyers(allOrders)

@@ -14,6 +14,8 @@ import MaterialTable from "material-table";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import API_URL from './../../config'
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -69,7 +71,7 @@ export default function Products() {
 
     if (decodedToken.isValid) {
       await axios
-        .post("http://localhost:5000/product/addProduct", formProduct, {
+        .post(`${API_URL}/product/addProduct`, formProduct, {
           headers: {
             "auth-token": token,
           },
@@ -96,7 +98,7 @@ export default function Products() {
 
   async function getProducts() {
     await axios
-      .get("http://localhost:5000/product/getProductsByUserId/" + id)
+      .get(`${API_URL}/product/getProductsByUserId/${id}`)
       .then((response) => {
         const allProducts = response.data;
         setProducts(allProducts);
@@ -108,7 +110,7 @@ export default function Products() {
 
   async function getCategories() {
     await axios
-      .get("http://localhost:5000/category/getAll")
+      .get(`${API_URL}/category/getAll`)
       .then((response) => {
         setCategories(response.data);
       })
@@ -119,7 +121,7 @@ export default function Products() {
 
   async function deleteProduct(id) {
     await axios
-      .delete("http://localhost:5000/product/deleteProduct/" + id ,{
+      .delete(`${API_URL}/product/deleteProduct/${id}` ,{
         headers: {
           "auth-token": token,
         },
@@ -229,7 +231,7 @@ export default function Products() {
             {
               title: "Picture",
               field: "picture",
-              render: (rowData) => <img src={`/uploads/${rowData.picture}`} />,
+              render: (rowData) => <img src={`${API_URL}/uploads/${rowData.picture}`} />,
             },
             { title: "Name", field: "name" },
             { title: "Price", field: "price" },

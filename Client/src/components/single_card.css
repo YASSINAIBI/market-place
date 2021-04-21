@@ -45,8 +45,7 @@
     width: 360px;
     padding: 15px;
     margin: 15px auto;
-    background-color: #f7f7f7;
-
+    /* background-color: #f7f7f7; */
   }
   
   @media (max-width: 991px) {
@@ -117,18 +116,18 @@
   }
   
   .el-wrapper .img {
-    padding: 20px 0;
+    /* padding: 20px 0;
     -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
     -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
     -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
-    transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 800ms cubic-bezier(0, 0, 0.18, 1); */
     /* ease-out */
-    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
     -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
     -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1); */
     /* ease-out */
-    margin: auto;
+    /* margin: auto; */
   }
   
   .h-bg {
@@ -228,17 +227,17 @@
   }
   
   .cart .price {
-    -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    /* -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
     -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
     -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-    transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 600ms cubic-bezier(0, 0, 0.18, 1); */
     /* ease-out */
-    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
     -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
     -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1); */
     /* ease-out */
-    -webkit-transition-delay: 100ms;
+    /* -webkit-transition-delay: 100ms;
     -o-transition-delay: 100ms;
     transition-delay: 100ms;
     display: block;
@@ -250,21 +249,21 @@
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-size: 16px;
-    color: #252525;
+    color: #252525; */
   }
   
   .cart .add-to-cart {
-    -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    /* -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
     -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
     -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
-    transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 600ms cubic-bezier(0, 0, 0.18, 1); */
     /* ease-out */
-    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
     -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
     -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
-    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1); */
     /* ease-out */
-    -webkit-transition-delay: 100ms;
+    /* -webkit-transition-delay: 100ms;
     -o-transition-delay: 100ms;
     transition-delay: 100ms;
     display: block;
@@ -274,7 +273,7 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
   }
   
   .cart .add-to-cart .txt {

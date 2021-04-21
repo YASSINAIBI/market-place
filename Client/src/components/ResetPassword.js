@@ -11,6 +11,8 @@ import { useHistory} from "react-router-dom";
 import { store } from 'react-notifications-component';
 import axios from 'axios'
 
+import API_URL from './../config'
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,9 +44,8 @@ export default function ResetPassword() {
 
 
 
-
   const onClick = async () =>{
-    await axios.patch('http://localhost:5000/seller/resetPassword',{
+    await axios.patch(`${API_URL}/seller/resetPassword`,{
         password : password,
         newPassword : newPassword
     },{

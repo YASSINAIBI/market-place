@@ -12,6 +12,8 @@ import MaterialTable from "material-table";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import API_URL from './../../config'
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -55,7 +57,7 @@ export default function Ads() {
     formAds.append("startDate", data.startDate);
     formAds.append("endDate", data.endDate);
     await axios
-      .post("http://localhost:5000/ads/add", formAds)
+      .post(`${API_URL}/ads/add`, formAds)
       .then(function (response) {
         toast.configure();
         toast.success("Ads added successfully")
@@ -75,7 +77,7 @@ export default function Ads() {
 
   async function fetchAds() {
     await axios
-      .get("http://localhost:5000/ads/getAll")
+      .get(`${API_URL}/ads/getAll`)
       .then((response) => {
         const allAds = response.data;
         setAds(allAds);
@@ -87,7 +89,7 @@ export default function Ads() {
 
   async function deleteAd(id) {
     await axios
-      .delete("http://localhost:5000/ads/delete/" + id)
+      .delete(`${API_URL}/ads/delete/${id}`)
       .then(function (response) {
         fetchAds();
         toast.configure();
@@ -170,7 +172,7 @@ export default function Ads() {
         <MaterialTable
             title="Ads Table"
             columns={[
-                { title: 'Picture', field: 'picture', render: rowData => <img src={`/uploads/${rowData.picture}`}/> },
+                { title: 'Picture', field: 'picture', render: rowData => <img src={`${API_URL}/uploads/${rowData.picture}`}/> },
                 { title: 'Price', field: 'pricing' },
                 { title: 'Date Start', field: 'startDate' },
                 { title: 'Date Start', field: 'endDate',},

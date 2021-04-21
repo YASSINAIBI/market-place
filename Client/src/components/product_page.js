@@ -4,6 +4,8 @@ import "./single_card.css";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
+import API_URL from './../config'
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -28,7 +30,7 @@ export default function Product_page() {
 
   async function getRandomAdd() {
     await axios
-      .get("http://localhost:5000/ads/getOne")
+      .get(`${API_URL}/ads/getOne`)
       .then((response) => {
         const randomAdd = response.data[0];
         setAd(randomAdd);
@@ -40,7 +42,7 @@ export default function Product_page() {
 
   async function getProducts() {
     await axios
-      .get("http://localhost:5000/product/getAll")
+      .get(`${API_URL}/product/getAll`)
       .then((response) => {
         const allProducts = response.data;
         setProducts(allProducts);
@@ -54,7 +56,7 @@ export default function Product_page() {
     //  console.log(curr);
     axios
       .get(
-        "http://data.fixer.io/api/latest?access_key=785557596904232c17239a2ba79e8e76"
+        `http://data.fixer.io/api/latest?access_key=785557596904232c17239a2ba79e8e76`
       )
       .then((response) => {
         const data = response.data.rates;
@@ -73,7 +75,7 @@ export default function Product_page() {
 
   async function findSingleProduct(id) {
     await axios
-      .get("http://localhost:5000/product/" + id)
+      .get(`${API_URL}/product/` + id)
       .then(function (response) {})
       .catch(function (error) {
         console.log(error);
@@ -106,7 +108,7 @@ export default function Product_page() {
                       <div className="box-up">
                         <img
                           className="img"
-                          src={`/uploads/${product.picture}`}
+                          src={`${API_URL}/uploads/${product.picture}`}
                           alt
                         />
                         <div className="img-info">

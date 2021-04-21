@@ -4,6 +4,8 @@ import jwt from "jwt-decode";
 import axios from "axios";
 import "./profile.css";
 
+import API_URL from './../../config'
+
 export default function Info() {
   const [seller, setSeller] = useState({});
   const token = localStorage.getItem("token");
@@ -15,7 +17,7 @@ export default function Info() {
 
   const getSeller = async () => {
     await axios
-      .get("http://localhost:5000/seller/getOne/" + seller_id)
+      .get(`${API_URL}/seller/getOne/${seller_id}`)
       .then((response) => {
         setSeller(response.data);
       })
